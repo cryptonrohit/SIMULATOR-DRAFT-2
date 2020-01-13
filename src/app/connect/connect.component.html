@@ -1,0 +1,27 @@
+<!-- <app-main-heading></app-main-heading> -->
+
+<!-- <div *ngIf="!connectClickValue">
+    <h3 style="color: darkmagenta;margin-bottom: 40px;">Please enter the Central Station for getting Connected.</h3>
+<label style="font: bolder;color: chocolate;">Central Station: </label>&nbsp; -->
+<!-- <span>
+    <input type="text" style="background-color: lightgrey;" value="wss://ebusdev-chargerapp-ebusdev.eu1.mindsphere.io/ChargingStations" size="60" readonly>&nbsp;
+    Enter Subtent id: <input type="text" value="Subtenant_id">&nbsp;
+    Enter Chrager id: <input type="text" value="Charger_id">
+</span> -->
+
+<!-- <label>Subtent-id: </label><app-subtenant-values></app-subtenant-values>&nbsp;&nbsp; -->
+
+
+<div class="form-inline">
+    <label>Enter the Subtenant-id:</label>
+    <app-subtenant-values (selectedValue)="onSelected($event)"></app-subtenant-values>
+    <label class="second">Enter the Charger-id:  </label>
+    <input class="form-control" type="text" placeholder="Enter the Charger-id" [(ngModel)]="chargerid" (ngModelChange)="chargeId()" [readonly]="show? true : false"><br/>
+    <button class="btn btn-primary" (click)="onClickConnect()" [disabled]= "showbutton && chargeridvalue? false : true">Connect</button>
+    <button class="btn btn-danger" (click)="onClickDisconnect()" [disabled]= "!show? true : false">Disconnect</button>
+
+    <app-status-values *ngIf="show"></app-status-values>
+</div>
+
+
+
